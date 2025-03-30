@@ -1,12 +1,53 @@
-# React + Vite
+# React Hooks
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hooks are Special functions in react which allows functional components to work as class components.
+The functions which starts with word use are called as hooks.
 
-Currently, two official plugins are available:
+There are 7 main commonly used hooks in React.js:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 1.) useState:
+useState hook in react is used to manaage the state of a variable which changes overtime.
 
-## Expanding the ESLint configuration
+Eg:
+### Syntax:
+const [var,setterFn]=useState(initialVal);
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 2.) useEffect:
+useEffect hook is used for sideEffects of application.
+
+Eg:
+1.) Data Fetching
+2.) Rendering Lists etc..
+
+useEffect can be used in 3 ways:
+i.) without dependency array
+ii.) with Empty dependency array.
+iii.) with Dependency variables in dependency 
+
+### Syntax:
+==>useEffect(callBackFn,dependcyArr)
+
+Eg:
+useEffect(()=>{
+  console.log("useEffect without dependency array will execute for every change in component in page.");
+})
+
+
+useEffect(()=>{
+  console.log("useEffect with empty dependency array will execute only once after component mounted on page.");
+},[]);
+
+useEffect(()=>{
+  console.log("useEffect with dependencyVar dependency array will execute Whenever the dependency varaibales has changes.");
+},[dependecnyVar]);
+
+## 3.) useRef:
+useRef hook in react can be used in 2 ways:
+1.) It can be used to prevent the un-necessary renders of elements in page.
+2.) It can be used to hold a DOM Element.
+
+### Syntax - example :
+const inpRef = useRef();
+const App=()=>{
+  <input ref={inpRef} onChange={(e)=>inputRef.current.value=e.target.value}/>
+}
